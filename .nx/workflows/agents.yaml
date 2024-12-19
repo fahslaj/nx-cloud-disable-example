@@ -38,4 +38,4 @@ launch-templates:
           git config --global user.email test@test.com
           git config --global user.name "Test Test"
       - name: Install Playwright Dependencies
-        script: sudo npx playwright install-deps
+        script: npx playwright install-deps
