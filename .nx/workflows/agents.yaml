@@ -37,20 +37,5 @@ launch-templates:
         script: |
           git config --global user.email test@test.com
           git config --global user.name "Test Test"
-      # You can also set any other env vars to be passed to the following steps
-      # by setting their value in the `$NX_CLOUD_ENV` file.
-      # Most commonly for redefining PATH for further steps
-      - name: Setting env
-        script: |
-          # Update PATH with custom value
-          echo "PATH=$HOME/my-folder:$PATH" >> $NX_CLOUD_ENV
-      - name: Print path from previous step
-        # will include my-folder
-        script: echo $PATH
-      - name: Define env var for a step
-        env:
-          MY_ENV_VAR: 'env-var-for-step'
-        # will print env-var-for-step
-        script: echo $MY_ENV_VAR
-      # after you're last step Nx Agents will start accepting tasks to process
-      # no need to manually start up the agent yourself
+      - name: Install Playwright Dependencies
+        script: sudo npx playwright install-deps
